@@ -23,3 +23,19 @@ document.querySelectorAll('.nav-link').forEach(anchor => {
         }
     });
 });
+
+document.getElementById('searchInput').addEventListener('keyup', function() {
+    let filter = this.value.toLowerCase();
+    
+    let memberCards = document.querySelectorAll('#gallery .col-6');
+
+    memberCards.forEach(card => {
+        let name = card.querySelector('h6').textContent.toLowerCase();
+        
+        if (name.includes(filter)) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
+    });
+});
